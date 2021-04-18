@@ -14,6 +14,7 @@ namespace Vega.Data
         // addnig dbsets
         // include only those db sets for whose you can query directly
         public DbSet<Manufacturer> Manufacturers { get; set; }
+        public DbSet<Model> Models { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
