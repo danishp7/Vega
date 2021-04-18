@@ -13,7 +13,7 @@ namespace Vega.Data
         public MapperProfile()
         {
             CreateMap<Manufacturer, ManufacturerDto>().ReverseMap();
-            CreateMap<Model, Model>().ReverseMap();
+            CreateMap<Model, ModelDto>().ReverseMap();
         }
     }
 }

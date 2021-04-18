@@ -24,7 +24,7 @@ namespace Vega.Controllers
             _mapper = mapper;
         }
         // get all manufacturers
-        [Route("manufacturers")]
+        [Route("makers")]
         public async Task<IActionResult> GetManufacturers()
         {
             var manufacturers = await _makerRepo.GetAllManufacturers();

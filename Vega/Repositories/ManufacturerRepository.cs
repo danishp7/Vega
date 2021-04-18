@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Vega.Data;
+using Vega.Dtos;
 using Vega.Models;
 
 namespace Vega.Repositories
@@ -20,13 +21,14 @@ namespace Vega.Repositories
             _context = context;
             _mapper = mapper;
         }
-        public async Task<List<Manufacturer>> GetAllManufacturers()
+        public async Task<List<ManufacturerDto>> GetAllManufacturers()
         {
             var manufacturers = await _context.Manufacturers.Include(m => m.Models).ToListAsync();
             if (!manufacturers.Any())
                 return null;
 
-            return manufacturers;
+            var makers = _mapper.Map<List<ManufacturerDto>>(manufacturers);
+            return makers;
         }
     }
 }

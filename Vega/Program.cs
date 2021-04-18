@@ -18,9 +18,10 @@ namespace Vega
     {
         public static void Main(string[] args)
         {
-            var host = CreateHostBuilder(args);
-            SeedDb(host);
-            host.Run();
+            CreateHostBuilder(args).Build().Run();
+            //var host = CreateHostBuilder(args);
+            //SeedDb(host);
+            //host.Run();
         }
         public static void SeedDb(IWebHost host)
         {
@@ -48,9 +49,8 @@ namespace Vega
             };
 
         }
-        public static IWebHost CreateHostBuilder(string[] args) =>
+        public static IWebHostBuilder CreateHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
+                .UseStartup<Startup>();
     }
 }
